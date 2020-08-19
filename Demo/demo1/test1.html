@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // // 实现一个检测类型的公共接口
+        function detectType(type) {
+            return function (obj) {
+                return {}.toString.call(obj) === `[object ${type}]`;
+            }
+        }
+
+        // 根据自己的需求进行扩展,记住类型的首字母需要大写
+        const isString = detectType('String');
+        const isArray = detectType('Array');
+
+        console.log(isArray(detectType));
+        console.log(isString(123));
+        console.log(isString('abc'));
+
+
+
+        // 闭包
+        function f1() {
+            var a = 1;
+            var f2 = function () {
+                console.log(a);
+            }
+            return f2;
+        }
+        var s = f1();
+        s();
+
+        // 1 原型链的继承
+        // function Parent() {
+        //     this.lastName = "wang"
+        // }
+        // Parent.prototype.asset = ['house', 'car']
+
+        // function Child() {
+
+        // }
+        // Child.prototype = new Parent();
+        // var child = new Child();
+        // var child1 = new Child();
+        // child.asset.push("plane")
+        // console.log(child.lastName);//"wang"
+        // console.log(child1.asset);//[ 'house', 'car', 'plane' ]
+
+        //通过call来继承
+        // function Parent() {
+        //     this.lastName = "wang";
+        //     this.hobby = ['a', 'b']
+        // }
+        // Parent.prototype.asset = ['house', 'car']
+
+        // function Child() {
+        //     Parent.call(this);
+        //     console.log(this);
+        // }
+
+
+        // var child = new Child();
+        // var child1 = new Child();
+        // child1.hobby.push("c")
+        // console.log(child.lastName);//“wang"
+        // console.log(child1.hobby);//['a', 'b','c']
+        // console.log(child1.asset);// undefined
+
+
+        // 组合继承
+        // function Parent() {
+        //     this.lastName = "wang";
+        //     this.hobby = ['a', 'b']
+        // }
+        // Parent.prototype.asset = ['house', 'car']
+
+        // function Child() {
+        //     Parent.call(this)
+        // }
+        // Child.prototype = new Parent();
+
+        // var child = new Child();
+        // var child1 = new Child();
+        // child1.hobby.push("c")
+
+        // console.log(child.lastName);
+        // console.log(child1.hobby);
+        // console.log(child1.asset);
+        // console.log(child);
+
+
+        //优化组合继承
+        function Parent() {
+            this.lastName = "wang";
+            this.hobby = ['a', 'b']
+        }
+        Parent.prototype.asset = ['house', 'car']
+
+        function Child() {
+            Parent.call(this)
+        }
+        Child.prototype = Parent.prototype;
+        Child.prototype.constructor = Child;
+
+        var child = new Child();
+        var child1 = new Child();
+        child.hobby.push("c")
+
+        console.log(child.lastName);
+        console.log(child1.hobby);
+        console.log(child);
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>
