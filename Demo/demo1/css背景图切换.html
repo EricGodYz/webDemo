@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0px;
+            margin: 0px;
+
+        }
+
+        li {
+            list-style: none;
+        }
+
+        .list {
+            /* overflow: hidden; */
+            margin: 40px 500px;
+            position: relative;
+        }
+
+        .list li {
+            width: 70px;
+            float: left;
+            height: 32px;
+            font-size: 13px;
+            line-height: 32px;
+            text-align: center;
+            color: #fff;
+            font-weight: bold;
+           
+            
+        }
+
+        .list li:first-child {
+            background-color: #b572e5;
+            border-radius:5px 0px 0px 0px /5px 0px 0px 0px ;
+        }
+
+        .list li:nth-child(2) {
+            background-color: #36B37E;
+        }
+
+        .list li:last-child {
+            background-color: #da1941;
+            border-radius:0px 5px 0px 0px /0px 5px 0px 0px ;
+        }
+        .list li:hover div{
+            display: block;
+        }
+        .show1{
+            background-color: #b572e5;
+            width: 210px ;
+            height: 50px;
+            border-radius:0px 0px 5px 5px / 0px 0px 5px 5px ;
+            position: absolute;
+            left: 0px ;
+            top: 32px;
+            background: linear-gradient(50deg, #b572e5 0, #b572e5 100%)
+        }
+        .show1 span{
+            font-size: 24px;
+            height: 24px;
+            display: block;
+            float: left;
+            line-height: 50px;
+        }
+        .show1 .btn{
+            float: left;
+            height: 32px;
+            line-height: 24px;
+            margin: 10px 0px 0px 8px;
+            color: #333;
+            padding: 4px;
+            font-size: 16px;
+            border-radius: 3px;
+            border: none;
+
+        }
+        .show2{
+            background-color: #36B37E;
+            display: none;
+            background: linear-gradient(50deg, #00a86f 0, #007c52 100%)
+        }
+        .show3{
+            background-color: #da1941;
+            display: none;
+            background: linear-gradient(50deg, #da1941 0, #ce0e36 100%) 
+        }
+    </style>
+</head>
+
+<body>
+
+    <ul class="list">
+        <li>永久
+            <div class="show1">
+                <span>￥2049元 </span>
+                <button class="btn">立即购买</button>
+            </div>
+
+        </li>
+        <li>组合
+            <div class="show1 show2">
+                <span>￥2049元 </span>
+                <button class="btn">立即购买</button>
+            </div>
+
+        </li>
+        <li>VIP
+            <div class="show1 show3">
+                <span>￥2049元 </span>
+                <button class="btn">立即购买</button>
+            </div>
+
+        </li>
+    </ul>
+</body>
+
+</html>
