@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1 {
+            height: 200px;
+            width: 200px;
+            margin: 50px auto;
+            background-color: greenyellow;
+            overflow: hidden;
+        }
+
+        .box2 {
+            width: 100px;
+            height: 100px;
+            background-color: hotpink;
+            margin-top: 50px;
+            margin-left: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box1">
+
+        <div class="box2">
+            sss
+        </div>
+    </div>
+    <script>
+        var box1 = document.querySelector('.box1');
+        var box2 = document.querySelector('.box2');
+        // box2.onclick = function(){
+        //     console.log('这是第一个点击事件');
+        // }
+        // box2.onclick = function(){
+        //     console.log('这是第二个点击事件');
+
+        // }
+
+        box2.addEventListener('click',function(){
+            console.log('这是第一个点击事件');
+        });
+        function say1(e){
+            e.stopPropagation();
+            console.log('这是第二个点击事件');
+        }
+        box2.addEventListener('click',say1);
+        box1.addEventListener('click',function(){
+            console.log('父级的事件');
+        });
+      
+        // box2.removeEventListener('click',say1);
+       
+
+    </script>
+</body>
+
+</html>
